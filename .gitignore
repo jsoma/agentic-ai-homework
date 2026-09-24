@@ -1,0 +1,18 @@
+# Local Python environment and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local configuration and temporary files
+.env
+.env.*
+!.env.example
+*.tmp
+
+# macOS metadata
+.DS_Store
+
+# Previous output location (current docs/ is tracked)
+/site/
