@@ -3,7 +3,6 @@
   const links = [...document.querySelectorAll('.rail a')];
   const select = document.querySelector('#chapter-select');
   const status = document.querySelector('#status');
-  const storageKey = 'agentic-tutorial-v2-chapter';
   const viewer = document.querySelector('#image-viewer');
   const pageTitle = document.title;
   let returnFocus;
@@ -19,7 +18,6 @@
     });
     select.value = chapters[index].id;
     document.title = `${chapters[index].querySelector('h1').textContent} · ${pageTitle}`;
-    try { localStorage.setItem(storageKey, chapters[index].id); } catch (_) {}
     if (viewer.open) viewer.close();
     if (focus) {
       chapters[index].querySelector('h1').focus({ preventScroll: true });
@@ -27,9 +25,7 @@
     }
   }
   document.documentElement.classList.add('js');
-  let saved;
-  try { saved = localStorage.getItem(storageKey); } catch (_) {}
-  showChapter(location.hash.slice(1) || saved);
+  showChapter(location.hash.slice(1));
   window.addEventListener('hashchange', () => showChapter(location.hash.slice(1), true));
   select.addEventListener('change', () => { location.hash = select.value; });
 

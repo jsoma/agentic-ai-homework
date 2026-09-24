@@ -47,6 +47,8 @@ with sync_playwright() as p:
             assert img.evaluate('(img) => img.naturalWidth > 0')
     page.reload()
     expect(page.locator('.chapter:visible h1')).to_have_text('Extending your process')
+    page.goto((root / 'docs/index.html').as_uri())
+    expect(page.locator('.chapter:visible h1')).to_have_text('What is agentic AI?')
     page.set_viewport_size({'width': 390, 'height': 844})
     page.select_option('#chapter-select', 'what-is-agentic-ai')
     expect(page.locator('.chapter:visible h1')).to_have_text('What is agentic AI?')
@@ -59,4 +61,4 @@ with sync_playwright() as p:
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
     assert not errors, errors
     browser.close()
-    print('Passed: nine chapters, all screenshots, copy, zoom/Escape, history, persistence, mobile navigation and overflow.')
+    print('Passed: nine chapters, all screenshots, copy, zoom/Escape, history, fresh starts, mobile navigation and overflow.')

@@ -48,7 +48,7 @@ A standalone HTML export with local images also works. To use another document o
 
 Existing output stays available if downloading or parsing fails. Image filenames are content hashes, so unchanged screenshots are reused. Old screenshots are retained to avoid breaking an already-open page; delete `docs/` before a successful full rebuild if you want to remove all unused assets.
 
-The website remembers the last chapter, supports chapter links and browser back/forward, uses a chapter dropdown on small screens, and allows copying prompts and enlarging screenshots. Without JavaScript, all chapters remain readable. Google Fonts are used when available, with local serif/monospace fallbacks.
+The website starts at the first chapter when opened without a chapter link, supports chapter links and browser back/forward, uses a chapter dropdown on small screens, and allows copying prompts and enlarging screenshots. Without JavaScript, all chapters remain readable. Google Fonts are used when available, with local serif/monospace fallbacks.
 
 The `docs/` folder is intentionally tracked in Git so it can be served by GitHub Pages. `.gitignore` excludes local environments, Python caches, temporary files, and macOS metadata. Keep `web/`: it contains the source CSS and JavaScript the builder copies into `docs/` on every update.
 
